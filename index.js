@@ -13,6 +13,7 @@ const welcomeSection = document.getElementById("welcome-section");
 const mainContent = document.getElementById("main-content");
 const dateForm = document.getElementById("date-form");
 const resultSection = document.getElementById("result-section");
+const inputDate = document.getElementById("special-date");
 let relashionshipInitialDate = -1;
 
 // add scroll smooth behavior to the body
@@ -41,17 +42,43 @@ welcomeSection.addEventListener("animationend", () => {
 }, { once: true });
 
 document.addEventListener("DOMContentLoaded", function () {
-    flatpickr("#special-date", {
-        dateFormat: "Y-m-d", // Adjust the date format as needed
-        // Add more options here to customize the appearance and behavior
-        onValueUpdate: function (selectedDates, dateStr, instance) {
-            // Handle the date selection if needed
-            relashionshipInitialDate = selectedDates[0] ? selectedDates[0] : -1;
-        },
-        onOpen: function (selectedDates, dateStr, instance) {
-            resultSection.classList.add("hidden"); // Hide the result section when the date picker opens
-        }
-    });
+    // User agent sniffing for basic mobile detection
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // Setup for mobile (iOS/Android) - use native date picker
+        inputDate.setAttribute("type", "date"); // Change input type to date
+
+        inputDate.addEventListener("change", function (event) {
+            if (event.target.value) {
+                // The value from <input type="date"> is in 'YYYY-MM-DD' format.
+                // Parse as local date to avoid timezone issues.
+                const [year, month, day] = event.target.value.split('-').map(Number);
+                relashionshipInitialDate = new Date(year, month - 1, day); // month is 0-indexed
+            } else {
+                relashionshipInitialDate = -1;
+            }
+        });
+
+        inputDate.addEventListener("focus", function () {
+            resultSection.classList.add("hidden"); // Hide the result section
+            resultSection.classList.remove("fade-in"); // Ensure fade-in is removed
+        });
+
+    } else {
+        // Setup for desktop - use flatpickr
+        flatpickr("#special-date", {
+            dateFormat: "Y-m-d", // Adjust the date format as needed
+            onValueUpdate: function (selectedDates, dateStr, instance) {
+                // Handle the date selection
+                relashionshipInitialDate = selectedDates[0] ? selectedDates[0] : -1;
+            },
+            onOpen: function (selectedDates, dateStr, instance) {
+                resultSection.classList.add("hidden"); // Hide the result section when the date picker opens
+                resultSection.classList.remove("fade-in"); // Ensure fade-in is removed
+            }
+        });
+    }
 });
 
 dateForm.addEventListener("submit", (event) => {
