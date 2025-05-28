@@ -1,0 +1,46 @@
+/* Class to immediately hide an element */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Class to apply a fade-in animation */
+.fade-in {
+    animation-name: fadeInAnimation;
+    animation-duration: 0.2s; /* Adjust duration as needed */
+    animation-timing-function: ease-in-out; /* Adjust timing function as needed */
+    animation-fill-mode: forwards; /* Keeps the element visible after animation */
+}
+
+/* Keyframes for fade-out animation */
+@keyframes fadeOutAnimation {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Class to apply a fade-out animation */
+.fade-out {
+    animation-name: fadeOutAnimation;
+    animation-duration: 0.3s; /* Adjust duration as needed */
+    animation-timing-function: ease-in-out; /* Adjust timing function as needed */
+    animation-fill-mode: forwards; /* Keeps the element hidden after animation */
+}
