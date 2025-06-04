@@ -56,22 +56,19 @@
         data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script> -->
     <!-- Semantic elements for better SEO and accessibility -->
     <div class="offcanvas-container h-screen min-h-screen flex flex-col">
-        <header class="site-header">
-            <a href="#" aria-label="Infinity Love - Back to Home">
-                <img src="./public/favicon.png" alt="Infinity Love Logo" class="mx-auto mt-8 max-w-36">
-            </a>
-        </header>
-
-        <main class="site-main container mx-auto px-4 py-8 my-auto" id="welcome-section">
-            <section class="welcome-section bg-white rounded-lg shadow-md p-6  max-w-2xl mx-auto">
-                <h1 class="text-xl font-semibold text-secondary-800 mb-4">Welcome to <span class="text-danger">Infinity
+        <div id="welcome-modal"
+            class="fixed top-0 left-0 w-full h-full bg-primary bg-opacity-75 backdrop-blur-sm flex justify-center items-center hidden">
+            <section id="welcome-section" class="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto">
+                <h1 class="text-xl font-semibold text-secondary-800 mb-4" data-i18n="welcomeTitle">Welcome to <span
+                        class="text-danger">Infinity
                         Love</span></h1>
-                <p class="text-secondary-600 text-justify">
+                <p class="text-secondary-600 text-justify" data-i18n="welcomeDescription1">
                     This is a website to count the days you and your loved one have been together. It helps you
                     celebrate your relationship milestones and cherish the moments you've shared. Whether it's been
-                    a few days, months, or years, Infinity Love is here to help you keep track of your journey together.
+                    a few days, months, or years, Infinity Love is here to help you keep track of your journey
+                    together.
                 </p>
-                <p class="text-secondary-600 text-justify mt-2">
+                <p class="text-secondary-600 text-justify mt-2" data-i18n="welcomeDescription2">
                     Infinity Love is more than just a date counter. It's a celebration of your unique love story.
                     With its beautiful design and user-friendly interface, you can easily track and share your
                     relationship milestones with your partner.
@@ -85,53 +82,161 @@
                     <div class="flex-grow border-t border-gray-300"></div>
                 </div>
                 <div class="get-started-container text-center">
-                    <button id="get-started"
-                        class="mx-auto mt-4 bg-primary hover:bg-danger text-white font-bold py-2 px-6 rounded">
-                        Get Started
+                    <button
+                        id="get-started"
+                        class="mx-auto mt-4 bg-primary hover:bg-danger text-white font-bold py-2 px-6 rounded"
+                        data-i18n="getStarted"
+                    >
+                        Close
                     </button>
                 </div>
             </section>
-        </main>
-
-        <main class="site-main container mx-auto px-4 py-8 my-auto hidden" id="main-content">
-            <section class="date-input-section bg-white rounded-lg shadow-md p-6  max-w-2xl mx-auto">
-                <h2 class="text-xl font-semibold text-secondary-800 mb-4 text-center">Enter Your Special Date</h2>
-                <form id="date-form" class="space-y-4">
-                    <div>
-                        <label for="special-date" class="block text-sm font-medium text-secondary-700">Your Special
-                            Date</label>
-                        <input type="date" id="special-date" name="special-date"
-                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-                            required>
-                    </div>
-                    <div>
-                        <button id="calculate-button" type="submit"
-                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-danger focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-                            Calculate
-                        </button>
-                    </div>
-                </form>
-            </section>
-            <section id="result-section"
-                class="result-section mt-8 bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto hidden">
-                <div class="text-center">
-                    <h3 class="text-lg font-semibold text-secondary-700">You have been together for:</h3>
-                    <p id="love-duration" class="text-2xl text-danger font-bold"></p>
-                </div>
-            </section>
-        </main>
-
-        <div class="ads-container w-full mx-auto">
-            <script async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9526840110851671"
-                crossorigin="anonymous"></script>
-            <!-- ad-horizontal -->
-            <ins class="adsbygoogle" style="display:block;height:90px;" data-ad-client="ca-pub-9526840110851671"
-                data-ad-slot="9740001442" data-ad-format="auto" data-full-width-responsive="true" data></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
         </div>
+
+        <section class="min-h-screen">
+            <header class="site-header grid grid-cols-3 justify-between items-center">
+                <div id="info-container" class="flex items-center space-x-4 ml-8">
+                    <div class="text-secondary-800" id="info-icon-container">
+                        <!-- add info icon -->
+                        <svg class="w-6 h-6 text-white hover:cursor-pointer" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                        </svg>
+                    </div>
+
+                </div>
+                <a href="#" aria-label="Infinity Love - Back to Home">
+                    <img src="./public/favicon.png" alt="Infinity Love Logo" class="mx-auto mt-8 max-w-36">
+                </a>
+                <div class="justify-end flex items-center space-x-4 mr-4">
+                    <select class="border border-gray-300 rounded-md shadow-sm hover:cursor-pointer focus-within:outline-none focus-within:ring-primary focus-within:border-primary" id="language-selector">
+                        <option class="text-secondary-800" value="en">English</option>
+                        <option class="text-secondary-800" value="pt">Português</option>
+                    </select>
+                </div>
+            </header>
+            <main class="site-main container mx-auto px-4 py-8">
+                <section id="date-input-section" class="bg-white rounded-lg shadow-md p-6  max-w-2xl mx-auto">
+                    <h2 class="text-xl font-semibold text-secondary-800 mb-4 text-center" data-i18n="enterDate">Enter
+                        the date you start the
+                        relationship</h2>
+                    <form id="date-form" class="space-y-4">
+                        <div>
+                            <label for="special-date" class="block text-sm font-medium text-secondary-700"
+                                data-i18n="specialDate">Your Special
+                                Date</label>
+                            <input max="today" type="date" id="special-date" name="special-date"
+                                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <button id="calculate-button" type="submit"
+                                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-danger focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                                data-i18n="calculate">
+                                Calculate
+                            </button>
+                        </div>
+                    </form>
+                </section>
+                <section id="result-section"
+                    class="result-section mt-8 bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto hidden">
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold text-secondary-700" data-i18n="togetherFor">You have been
+                            together for:</h3>
+                        <p id="love-duration" class="text-2xl text-danger font-bold"></p>
+                    </div>
+                </section>
+            </main>
+            <section class="ads-container w-full mx-auto">
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9526840110851671"
+                    crossorigin="anonymous"></script>
+                <!-- ad-horizontal -->
+                <ins class="adsbygoogle" style="display:block;height:90px;" data-ad-client="ca-pub-9526840110851671"
+                    data-ad-slot="9740001442" data-ad-format="auto" data-full-width-responsive="true" data></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </section>
+        </section>
+        <section id="content-section">
+            <article class="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto mt-8 text-secondary-600">
+                <h2 class="text-2xl font-semibold text-secondary-800 mb-6 text-center">A História do Amor: Dia dos
+                    Namorados no Brasil e Valentine's Day no Mundo</h2>
+
+                <p class="mb-4 text-justify">O amor é um sentimento universal, mas a forma como o celebramos pode
+                    variar bastante ao redor do globo. Duas das datas mais conhecidas para celebrar o romance são o
+                    Dia dos Namorados e o Valentine's Day, que, embora com propósitos semelhantes, possuem origens e
+                    datas de comemoração distintas. Vamos mergulhar na história dessas celebrações e entender as
+                    particularidades de cada uma.</p>
+
+                <section class="mb-6">
+                    <h3 class="text-xl font-semibold text-danger mb-3">Valentine's Day: As Raízes Antigas do Amor em
+                        Fevereiro</h3>
+                    <p class="mb-3 text-justify">O Valentine's Day, celebrado em 14 de fevereiro em grande parte do
+                        mundo, especialmente nos Estados Unidos e na Europa, tem uma história que remonta ao século
+                        V. Sua origem está ligada a São Valentim, um padre romano que viveu no século III.</p>
+                    <p class="mb-3 text-justify">A lenda mais difundida conta que o imperador Cláudio II proibiu
+                        casamentos para homens jovens, acreditando que soldados solteiros eram mais eficazes. No
+                        entanto, Valentim, desafiando a ordem imperial, realizava casamentos secretos para casais
+                        apaixonados. Descoberto, foi preso e condenado à morte. Durante seu encarceramento, ele se
+                        apaixonou pela filha de seu carcereiro e, no dia de sua execução, em 14 de fevereiro de 270
+                        d.C., enviou-lhe uma carta de amor assinada "do seu Valentim" – uma prática que se tornou a
+                        base para o envio de cartões de "valentines" hoje.</p>
+                    <p class="mb-3 text-justify">Dois séculos depois, o Papa Gelásio I instituiu o Dia de São
+                        Valentim, transformando um antigo festival pagão romano de fertilidade, a Lupercalia, em uma
+                        festa cristã. Embora a conexão direta entre a Lupercalia e o Valentine's Day seja debatida
+                        por historiadores, a data de 14 de fevereiro se consolidou como um dia para celebrar o amor
+                        e a afeição.</p>
+                    <p class="mb-3 text-justify">Ao longo dos séculos, a celebração evoluiu. No século XIV, com a
+                        poesia de Geoffrey Chaucer, a data começou a ser associada ao amor romântico e à ideia de
+                        pássaros escolhendo seus pares na primavera. No século XVIII, na Inglaterra, tornou-se comum
+                        a troca de flores, doces e cartões. Com o tempo, os cartões artesanais deram lugar às
+                        produções em massa, e símbolos como corações, pombas e o Cupido alado se tornaram ícones da
+                        data.</p>
+                </section>
+
+                <section class="mb-6">
+                    <h3 class="text-xl font-semibold text-danger mb-3">Dia dos Namorados no Brasil: Uma Estratégia
+                        Comercial com Toque de Santo Casamenteiro</h3>
+                    <p class="mb-3 text-justify">No Brasil, o Dia dos Namorados é comemorado em 12 de junho, uma
+                        data que difere da maioria dos países. A razão para essa particularidade é,
+                        surpreendentemente, de origem comercial.</p>
+                    <p class="mb-3 text-justify">Em 1948, o publicitário João Doria (pai do ex-governador de São
+                        Paulo João Doria Jr.), contratado pela loja Exposição Clipper para impulsionar as vendas
+                        fracas do mês de junho, teve a ideia de criar uma data comemorativa para o amor,
+                        inspirando-se no sucesso do Dia das Mães.</p>
+                    <p class="mb-3 text-justify">Junho foi escolhido estrategicamente por ser um mês de baixo
+                        movimento no comércio. O dia 12, por sua vez, foi definido por ser a véspera do Dia de Santo
+                        Antônio, o popular "santo casamenteiro" no Brasil. Essa associação com Santo Antônio deu um
+                        toque cultural e religioso à data, mesmo que sua motivação principal fosse econômica.</p>
+                    <p class="mb-3 text-justify">A primeira campanha publicitária para o Dia dos Namorados no Brasil
+                        trazia slogans como <em>"Não é só com beijos que se prova o amor!"</em> e <em>"Não se
+                            esqueçam: amor com amor se paga"</em>. A iniciativa foi um sucesso, e a data começou a
+                        ser adotada em outras regiões do país, tornando-se uma celebração nacional. Atualmente, o
+                        Dia dos Namorados é a terceira melhor data para o comércio brasileiro, ficando atrás apenas
+                        do Natal e do Dia das Mães.</p>
+                </section>
+
+                <section class="mb-6">
+                    <h3 class="text-xl font-semibold text-danger mb-3">As Diferenças e Semelhanças na Celebração
+                    </h3>
+                    <p class="mb-3 text-justify">A principal diferença entre o Valentine's Day e o Dia dos Namorados
+                        reside na data e, em parte, na sua origem. Enquanto o Valentine's Day tem raízes históricas
+                        e religiosas mais profundas, ligadas a São Valentim e a antigas tradições europeias, o Dia
+                        dos Namorados brasileiro nasceu de uma estratégia de marketing, embora tenha se enraizado na
+                        cultura popular com a ajuda da figura de Santo Antônio.</p>
+                    <p class="mb-3 text-justify">No entanto, as semelhanças são notáveis. Ambas as datas são
+                        dedicadas à celebração do amor romântico, à troca de presentes, cartões e demonstrações de
+                        carinho entre casais. Flores, chocolates, jantares românticos e declarações de amor são
+                        elementos comuns em ambas as comemorações, independentemente do calendário.</p>
+                </section>
+
+                <p class="text-justify">Em resumo, seja em 14 de fevereiro ou 12 de junho, o espírito é o mesmo:
+                    celebrar o amor e a conexão entre as pessoas. Cada data, com sua própria história e
+                    peculiaridades, reforça a importância de expressar afeto e carinho por aqueles que amamos.</p>
+            </article>
+        </section>
 
         <footer class="site-footer bg-gray-800 text-white py-8 mt-auto">
             <div
@@ -144,15 +249,16 @@
                 <!-- Terms Section -->
                 <div class="terms-section w-full md:w-auto">
                     <a href="https://www.termsfeed.com/live/24ac6d20-e628-4d19-9d38-f424618a894a" target="_blank"
-                        rel="noopener noreferrer" class="hover:underline text-danger">Terms of Service</a>
+                        rel="noopener noreferrer" class="hover:underline text-danger" data-i18n="termsOfService">Terms
+                        of Service</a>
                     <!-- Suggestions forms -->
                     <span class="mx-2">|</span>
                     <a href="https://forms.gle/DtyvXuBuamTJCJVy6" target="_blank" rel="noopener noreferrer"
-                        class="hover:underline text-danger">Suggestions</a>
+                        class="hover:underline text-danger" data-i18n="suggestions">Suggestions</a>
                 </div>
                 <!-- Connect With Me Section -->
                 <div class="connect-section w-full md:w-auto">
-                    <h3 class="text-md font-semibold mb-2">Connect With Me</h3>
+                    <h3 class="text-md font-semibold mb-2" data-i18n="connectWithMe">Connect With Me</h3>
                     <div class="social-links flex space-x-4 justify-center md:justify-start">
                         <a href="https://github.com/luskas8" target="_blank" rel="noopener noreferrer"
                             class="text-gray-400 hover:text-white transition-colors duration-300">

@@ -1,0 +1,17 @@
+{
+  "welcomeTitle": "Bem-vindo ao <span class=\"text-danger\">Infinity Love</span>",
+  "welcomeText1": "Este é um site para contar os dias que você e seu amor estão juntos.",
+  "welcomeDescription1": "Este é um site para contar os dias que você e seu amor estão juntos. Ele ajuda você a celebrar os marcos do seu relacionamento e a valorizar os momentos que vocês compartilharam. Seja há alguns dias, meses ou anos, o Infinity Love está aqui para ajudar você a acompanhar sua jornada juntos.",
+  "welcomeDescription2": "O Infinity Love é mais do que apenas um contador de datas. É uma celebração da sua história de amor única. Com seu design bonito e interface amigável, você pode facilmente acompanhar e compartilhar os marcos do seu relacionamento com seu parceiro.",
+  "getStarted": "Fechar",
+  "enterDate": "Insira a data de início do relacionamento",
+  "specialDate": "Sua Data Especial",
+  "calculate": "Calcular",
+  "togetherFor": "Vocês estão juntos há:",
+  "years": "anos",
+  "months": "meses",
+  "days": "dias",
+  "termsOfService": "Termos de Serviço",
+  "suggestions": "Sugestões",
+  "connectWithMe": "Conecte-se Comigo"
+}

@@ -1,0 +1,16 @@
+{
+  "welcomeTitle": "Welcome to <span class=\"text-danger\">Infinity Love</span>",
+  "welcomeDescription1": "This is a website to count the days you and your loved one have been together. It helps you celebrate your relationship milestones and cherish the moments you've shared. Whether it's been a few days, months, or years, Infinity Love is here to help you keep track of your journey together.",
+  "welcomeDescription2": "Infinity Love is more than just a date counter. It's a celebration of your unique love story. With its beautiful design and user-friendly interface, you can easily track and share your relationship milestones with your partner.",
+  "getStarted": "Close",
+  "enterDate": "Enter the date you start the relationship",
+  "specialDate": "Your Special Date",
+  "calculate": "Calculate",
+  "togetherFor": "You have been together for:",
+  "years": "years",
+  "months": "months",
+  "days": "days",
+  "termsOfService": "Terms of Service",
+  "suggestions": "Suggestions",
+  "connectWithMe": "Connect With Me"
+}

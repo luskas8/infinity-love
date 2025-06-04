@@ -9,39 +9,106 @@ currentYearElm.textContent = currentYear.toString();
 
 // Add event listener to the button
 const getStartedButton = document.getElementById("get-started");
-const welcomeSection = document.getElementById("welcome-section");
+const welcomeModal = document.getElementById("welcome-modal");
 const mainContent = document.getElementById("main-content");
 const dateForm = document.getElementById("date-form");
 const resultSection = document.getElementById("result-section");
 const inputDate = document.getElementById("special-date");
+const languageSelector = document.getElementById("language-selector");
+const infoIcon = document.querySelector("#info-icon-container svg");
 let relashionshipInitialDate = -1;
+let translations = {};
 
 // add scroll smooth behavior to the body
 document.body.style.scrollBehavior = "smooth";
 
 getStartedButton.addEventListener("click", async () => {
-    // remove the "welcome-section" id from the with a transition of "fade-out"
-    welcomeSection.classList.add("fade-out");
-    // Show the main content section
-    await new Promise(resolve => {
-        // Wait for the animationend complete
-        welcomeSection.addEventListener("animationend", resolve, { once: true });
-    });
-
-    mainContent.classList.remove("hidden");
-    mainContent.classList.add("fade-in");
-    // Scroll to the top of the main content section
-    mainContent.scrollIntoView({ behavior: "smooth" });
+    await modalDisappear(welcomeModal)
 });
 
-welcomeSection.addEventListener("animationend", () => {
-    welcomeSection.removeAttribute("id");
-    welcomeSection.classList.remove("fade-out");
-    // Add the 'hidden' class after the transition completes
-    welcomeSection.classList.add("hidden");
+/** * Function to handle the appearance of the modal with a fade-in effect.
+ * @param {HTMLElement | null} modal 
+ */
+async function modalAppear(modal) {
+    modal.classList.remove("hidden");
+    modal.classList.add("fade-in");
+    await new Promise(resolve => {
+        // Wait for the animationend complete
+        modal.addEventListener("animationend", resolve, { once: true });
+    });
+    modal.classList.remove("hidden");
+    modal.classList.add("fade-in");
+    // Scroll to the top of the modal
+    modal.scrollIntoView({ behavior: "smooth" });
+}
+
+/** Function to handle the disappearance of the modal with a fade-out effect.
+ * @param {HTMLElement | null} modal
+ */
+async function modalDisappear(modal) {
+    modal.classList.add("fade-out");
+    await new Promise(resolve => {
+        // Wait for the animationend complete
+        modal.addEventListener("animationend", resolve, { once: true });
+    });
+    modal.classList.add("hidden");
+    modal.classList.remove("fade-out");
+}
+
+welcomeModal.addEventListener("animationend", () => {
+    welcomeModal.classList.remove("fade-out");
 }, { once: true });
 
-document.addEventListener("DOMContentLoaded", function () {
+// Add event listener for the info icon
+infoIcon.addEventListener("click", async () => {
+    await modalAppear(welcomeModal);
+});
+
+welcomeModal.addEventListener("click", async (event) => {
+    // Check if the click is outside the modal content
+    if (event.target === welcomeModal) {
+        await modalDisappear(welcomeModal);
+    }
+})
+
+// Add event listener for the language selector
+languageSelector.addEventListener("change", async (event) => {
+    const selectedLanguage = event.target.value;
+    await initializeLanguage(selectedLanguage);
+});
+
+async function loadTranslations(lang) {
+    try {
+        const response = await fetch(`./locates/${lang}.json`);
+        translations = await response.json();
+    } catch (error) {
+        console.error(`Error loading translations for ${lang}:`, error);
+        translations = {}; // Fallback to empty object
+    }
+}
+
+function translate(key) {
+    return translations[key] || key; // Return translation or the key if not found
+}
+async function updateContent() {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        element.innerHTML = translate(key);
+    });
+}
+
+// Function to initialize the language
+async function initializeLanguage(lang) {
+    await loadTranslations(lang);
+    await updateContent();
+}
+
+document.addEventListener("DOMContentLoaded", async function () {
+    // Determine the language (e.g., from browser settings or a default)
+    const language = navigator.language.split('-')[0] || 'en'; // Default to English
+
+    await initializeLanguage(language);
+
     // User agent sniffing for basic mobile detection
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
@@ -68,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         // Setup for desktop - use flatpickr
         flatpickr("#special-date", {
+            maxDate: "today",
             dateFormat: "Y-m-d", // Adjust the date format as needed
             onValueUpdate: function (selectedDates, dateStr, instance) {
                 // Handle the date selection
@@ -99,11 +167,11 @@ dateForm.addEventListener("submit", (event) => {
     // Display the result
     const result = document.getElementById("love-duration");
     if (years > 0) {
-        result.innerHTML = `<p>${years} years</p><p>${months} months</p><p>${remainingDays} days</p>`;
+        result.innerHTML = `<p>${years} ${translations.years}</p><p>${months} ${translations.months}</p><p>${remainingDays} ${translations.days}</p>`;
     } else if (months > 0) {
-        result.innerHTML = `<p>${months} months</p><p>${remainingDays} days</p>`;
+        result.innerHTML = `<p>${months} ${translations.months}</p><p>${remainingDays} ${translations.days}</p>`;
     } else {
-        result.innerHTML = `<p>${remainingDays} days</p>`;
+        result.innerHTML = `<p>${remainingDays} ${translations.days}</p>`;
     }
 
     document.getElementById("special-date").value = "";
