@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="luskas8">
+    <meta name="description" content="About Infinity Love - Learn more about our mission and team.">
+    <meta name="keywords" content="about us, infinity love, relationship tracker, love counter">
+    <link rel="icon" href="./public/favicon.png" type="image/x-icon">
+    <title>About Us - Infinity Love</title>
+    <!-- Include CSS -->
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Optional: Configure Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1B1B1E',
+                        secondary: '#F5EDF0',
+                        danger: '#CC5A71',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NZE1FWEW6"></script>
+    <!-- Google Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9526840110851671"
+        crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9NZE1FWEW6');
+    </script>
+</head>
+
+<body class="bg-primary font-sans">
+    <div class="offcanvas-container h-screen min-h-screen flex flex-col">
+        <div w3-include-html="components/welcome-modal.html"></div>
+        <header class="site-header grid grid-cols-3 justify-between items-center" w3-include-html="components/header.html"></header>
+        <main class="site-main container mx-auto px-4 py-8">
+            <section id="about-us-section" class="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto">
+                <h1 class="text-2xl font-semibold text-secondary-800 mb-4 text-center" data-i18n="aboutUs">About Us</h1>
+                <p class="text-secondary-600 text-justify mb-4" data-i18n="aboutDescription">
+                    Infinity Love was created with love and attention to detail. We believe that every relationship
+                    is unique and deserves to be celebrated. Our website is designed to be user-friendly and
+                    visually appealing, making it easy for you to keep track of your love story.
+                </p>
+                <h2 class="text-xl font-semibold text-secondary-800 mt-4 mb-2" data-i18n="ourTeam">Our Team</h2>
+                <p class="text-secondary-600 text-justify mb-4" data-i18n="ourTeamDescription">
+                    We are a small team of developers and designers dedicated to creating the best possible
+                    experience for our users. We are constantly working to improve Infinity Love and add new
+                    features that you will love.
+                </p>
+                <h2 class="text-xl font-semibold text-secondary-800 mt-4 mb-2" data-i18n="contactUs">Contact Us</h2>
+                <p class="text-secondary-600 text-justify mb-4" data-i18n="contactDescription">
+                    If you have any questions, suggestions, or feedback, please don't hesitate to contact us. We
+                    would love to hear from you!
+                </p>
+                <a href="https://forms.gle/DtyvXuBuamTJCJVy6" target="_blank" rel="noopener noreferrer"
+                    class="hover:underline text-danger" data-i18n="suggestionsForm">Suggestions form</a>
+            </section>
+        </main>
+        <footer class="site-footer bg-gray-800 text-white py-8 mt-auto" w3-include-html="components/footer.html"></footer>
+    </div>
+    <!-- Flatpickr JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="./include.js"></script>
+</body>
+
+</html>

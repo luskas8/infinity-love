@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="luskas8">
+    <meta name="description" content="Contact Infinity Love - Reach out to us with your questions and feedback.">
+    <meta name="keywords" content="contact us, infinity love, relationship tracker, love counter">
+    <link rel="icon" href="./public/favicon.png" type="image/x-icon">
+    <title>Contact Us - Infinity Love</title>
+    <!-- Include CSS -->
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Optional: Configure Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1B1B1E',
+                        secondary: '#F5EDF0',
+                        danger: '#CC5A71',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NZE1FWEW6"></script>
+    <!-- Google Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9526840110851671"
+        crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9NZE1FWEW6');
+    </script>
+</head>
+
+<body class="bg-primary font-sans">
+    <div class="offcanvas-container h-screen min-h-screen flex flex-col">
+        <div w3-include-html="components/welcome-modal.html"></div>
+        <header class="site-header grid grid-cols-3 justify-between items-center"
+            w3-include-html="components/header.html"></header>
+        <main class="site-main container mx-auto px-4 py-8">
+            <section id="contact-us-section" class="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto">
+                <h1 class="text-2xl font-semibold text-secondary-800 mb-4 text-center">Contact Us</h1>
+                <p class="text-secondary-600 text-justify mb-4">
+                    We'd love to hear from you! Please use the form below to send us your questions, feedback, or
+                    suggestions.
+                </p>
+                <a href="https://forms.gle/DtyvXuBuamTJCJVy6" target="_blank" rel="noopener noreferrer"
+                    class="hover:underline text-danger" data-i18n="suggestionsForm">Suggestions form</a>
+                
+                <h2 class="text-lg font-semibold text-secondary-800 mt-6 mb-4">Social</h2>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/luskas8" target="_blank" rel="noopener noreferrer"
+                        class="text-danger hover:text-secondary transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.499.09.679-.217.679-.481 0-.237-.008-.865-.013-1.702-2.782.602-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.618.069-.606.069-.606 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.089 2.91.835.09-.647.35-1.089.636-1.338-2.22-.253-4.555-1.113-4.555-4.93 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.29 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65a3.894 3.894 0 011.029 2.682c0 3.823-2.339 4.675-4.562 4.922.357.307.676.915.676 1.849 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.685.479C21.133 20.18 24 16.425 24 12.017 24 6.484 19.522 2 14 2h-2z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">GitHub</span>
+                    </a>
+                    <a href="https://instagram.com/luskas.c" target="_blank" rel="noopener noreferrer"
+                        class="text-danger hover:text-secondary transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12 0C8.74 0 8.333.01 7.02 0.06C5.71 0.11 4.77 0.29 3.91 0.63C3.05 0.97 2.31 1.45 1.69 2.07C1.07 2.69 0.59 3.43 0.25 4.29C-0.09 5.15 -0.27 6.09 -0.32 7.4C-0.37 8.71 -0.38 9.12 -0.38 12C-0.38 14.88 -0.37 15.29 -0.32 16.6C-0.27 17.91 -0.09 18.85 0.25 19.71C0.59 20.57 1.07 21.31 1.69 21.93C2.31 22.55 3.05 23.03 3.91 23.37C4.77 23.71 5.71 23.89 7.02 23.94C8.33 23.99 8.74 24 12 24C15.26 24 15.67 23.99 16.98 23.94C18.29 23.89 19.23 23.71 20.09 23.37C20.95 23.03 21.69 22.55 22.31 21.93C22.93 21.31 23.41 20.57 23.75 19.71C24.09 18.85 24.27 17.91 24.32 16.6C24.37 15.29 24.38 14.88 24.38 12C24.38 9.12 24.37 8.71 24.32 7.4C24.27 6.09 24.09 5.15 23.75 4.29C23.41 3.43 22.93 2.69 22.31 2.07C21.69 1.45 20.95 0.97 20.09 0.63C19.23 0.29 18.29 0.11 16.98 0.06C15.67 0.01 15.26 0 12 0ZM12 2.16C15.21 2.16 15.58 2.17 16.8 2.22C17.99 2.27 18.68 2.45 19.19 2.65C19.71 2.85 20.06 3.1 20.39 3.43C20.72 3.76 20.97 4.11 21.17 4.63C21.37 5.14 21.55 5.83 21.6 7.02C21.65 8.24 21.66 8.61 21.66 12C21.66 15.39 21.65 15.76 21.6 16.98C21.55 18.17 21.37 18.86 21.17 19.37C20.97 19.89 20.72 20.24 20.39 20.57C20.06 20.9 19.71 21.15 19.19 21.35C18.68 21.55 17.99 21.73 16.8 21.78C15.58 21.83 15.21 21.84 12 21.84C8.79 21.84 8.42 21.83 7.2 21.78C6.01 21.73 5.32 21.55 4.81 21.35C4.29 21.15 3.94 20.9 3.61 20.57C3.28 20.24 3.03 19.89 2.83 19.37C2.63 18.86 2.45 18.17 2.4 16.98C2.35 15.76 2.34 15.39 2.34 12C2.34 8.61 2.35 8.24 2.4 7.02C2.45 5.83 2.63 5.14 2.83 4.63C3.03 4.11 3.28 3.76 3.61 3.43C3.94 3.1 4.29 2.85 4.81 2.65C5.32 2.45 6.01 2.27 7.2 2.22C8.42 2.17 8.79 2.16 12 2.16ZM12 6.87C9.1 6.87 6.87 9.1 6.87 12C6.87 14.9 9.1 17.13 12 17.13C14.9 17.13 17.13 14.9 17.13 12C17.13 9.1 14.9 6.87 12 6.87ZM12 15.13C10.24 15.13 8.87 13.76 8.87 12C8.87 10.24 10.24 8.87 12 8.87C13.76 8.87 15.13 10.24 15.13 12C15.13 13.76 13.76 15.13 12 15.13ZM17.8 5.83C17.26 5.83 16.83 5.39 16.83 4.85C16.83 4.31 17.26 3.87 17.8 3.87C18.34 3.87 18.77 4.31 18.77 4.85C18.77 5.39 18.34 5.83 17.8 5.83Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer bg-gray-800 text-white py-8 mt-auto" w3-include-html="components/footer.html">
+        </footer>
+    </div>
+    <!-- Flatpickr JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="./include.js"></script>
+</body>
+
+</html>

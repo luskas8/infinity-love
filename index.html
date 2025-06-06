@@ -49,72 +49,16 @@
     </script>
 </head>
 
-<body class="bg-primary font-sans">
+<body class="bg-primary font-sans w-full min-w-screen">
     <!-- Consent Manager -->
     <!-- <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/js/semiautomatic.min.js"
         data-cmp-cdid="a3cc88c5e26c7" data-cmp-host="c.delivery.consentmanager.net"
         data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script> -->
     <!-- Semantic elements for better SEO and accessibility -->
     <div class="offcanvas-container h-screen min-h-screen flex flex-col">
-        <div id="welcome-modal"
-            class="fixed top-0 left-0 w-full h-full bg-primary bg-opacity-75 backdrop-blur-sm flex justify-center items-center hidden">
-            <section id="welcome-section" class="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto">
-                <h1 class="text-xl font-semibold text-secondary-800 mb-4" data-i18n="welcomeTitle">Welcome to <span
-                        class="text-danger">Infinity
-                        Love</span></h1>
-                <p class="text-secondary-600 text-justify" data-i18n="welcomeDescription1">
-                    This is a website to count the days you and your loved one have been together. It helps you
-                    celebrate your relationship milestones and cherish the moments you've shared. Whether it's been
-                    a few days, months, or years, Infinity Love is here to help you keep track of your journey
-                    together.
-                </p>
-                <p class="text-secondary-600 text-justify mt-2" data-i18n="welcomeDescription2">
-                    Infinity Love is more than just a date counter. It's a celebration of your unique love story.
-                    With its beautiful design and user-friendly interface, you can easily track and share your
-                    relationship milestones with your partner.
-                </p>
-                <div class="separator flex items-center my-4">
-                    <div class="flex-grow border-t border-gray-300"></div>
-                    <svg class="mx-2 max-w-6 text-danger" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path
-                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3c3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                    </svg>
-                    <div class="flex-grow border-t border-gray-300"></div>
-                </div>
-                <div class="get-started-container text-center">
-                    <button
-                        id="get-started"
-                        class="mx-auto mt-4 bg-primary hover:bg-danger text-white font-bold py-2 px-6 rounded"
-                        data-i18n="getStarted"
-                    >
-                        Close
-                    </button>
-                </div>
-            </section>
-        </div>
-
+        <div w3-include-html="components/welcome-modal.html"></div>
         <section class="min-h-screen">
-            <header class="site-header grid grid-cols-3 justify-between items-center">
-                <div id="info-container" class="flex items-center space-x-4 ml-8">
-                    <div class="text-secondary-800" id="info-icon-container">
-                        <!-- add info icon -->
-                        <svg class="w-6 h-6 text-white hover:cursor-pointer" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-                        </svg>
-                    </div>
-
-                </div>
-                <a href="#" aria-label="Infinity Love - Back to Home">
-                    <img src="./public/favicon.png" alt="Infinity Love Logo" class="mx-auto mt-8 max-w-36">
-                </a>
-                <div class="justify-end flex items-center space-x-4 mr-4">
-                    <select class="border border-gray-300 rounded-md shadow-sm hover:cursor-pointer focus-within:outline-none focus-within:ring-primary focus-within:border-primary" id="language-selector">
-                        <option class="text-secondary-800" value="en">English</option>
-                        <option class="text-secondary-800" value="pt">Português</option>
-                    </select>
-                </div>
-            </header>
+            <header class="site-header grid grid-cols-3 justify-between items-center" w3-include-html="components/header.html"></header>
             <main class="site-main container mx-auto px-4 py-8">
                 <section id="date-input-section" class="bg-white rounded-lg shadow-md p-6  max-w-2xl mx-auto">
                     <h2 class="text-xl font-semibold text-secondary-800 mb-4 text-center" data-i18n="enterDate">Enter
@@ -147,19 +91,8 @@
                     </div>
                 </section>
             </main>
-            <section class="ads-container w-full mx-auto">
-                <script async
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9526840110851671"
-                    crossorigin="anonymous"></script>
-                <!-- ad-horizontal -->
-                <ins class="adsbygoogle" style="display:block;height:90px;" data-ad-client="ca-pub-9526840110851671"
-                    data-ad-slot="9740001442" data-ad-format="auto" data-full-width-responsive="true" data></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </section>
         </section>
-        <section id="content-section">
+        <section id="content-section" class="container mx-auto px-4 py-8">
             <article class="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto mt-8 text-secondary-600">
                 <h2 class="text-2xl font-semibold text-secondary-800 mb-6 text-center">A História do Amor: Dia dos
                     Namorados no Brasil e Valentine's Day no Mundo</h2>
@@ -238,55 +171,12 @@
             </article>
         </section>
 
-        <footer class="site-footer bg-gray-800 text-white py-8 mt-auto">
-            <div
-                class="footer-container w-full mx-auto px-4 sm:px-6 md:px-10 lg:px-20 text-gray-400 text-sm flex flex-col items-center text-center space-y-6 md:flex-row md:justify-between md:items-start md:text-left md:space-y-0">
-                <!-- Copyright Section -->
-                <div class="copyright-section w-full md:w-auto">
-                    &copy; <span id="current-year"></span> <a target="_blank" href="https://github.com/luskas8"
-                        class="underline text-danger hover:text-white">luskas8</a>. All rights reserved.
-                </div>
-                <!-- Terms Section -->
-                <div class="terms-section w-full md:w-auto">
-                    <a href="https://www.termsfeed.com/live/24ac6d20-e628-4d19-9d38-f424618a894a" target="_blank"
-                        rel="noopener noreferrer" class="hover:underline text-danger" data-i18n="termsOfService">Terms
-                        of Service</a>
-                    <!-- Suggestions forms -->
-                    <span class="mx-2">|</span>
-                    <a href="https://forms.gle/DtyvXuBuamTJCJVy6" target="_blank" rel="noopener noreferrer"
-                        class="hover:underline text-danger" data-i18n="suggestions">Suggestions</a>
-                </div>
-                <!-- Connect With Me Section -->
-                <div class="connect-section w-full md:w-auto">
-                    <h3 class="text-md font-semibold mb-2" data-i18n="connectWithMe">Connect With Me</h3>
-                    <div class="social-links flex space-x-4 justify-center md:justify-start">
-                        <a href="https://github.com/luskas8" target="_blank" rel="noopener noreferrer"
-                            class="text-gray-400 hover:text-white transition-colors duration-300">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.499.09.679-.217.679-.481 0-.237-.008-.865-.013-1.702-2.782.602-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.618.069-.606.069-.606 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.089 2.91.835.09-.647.35-1.089.636-1.338-2.22-.253-4.555-1.113-4.555-4.93 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.29 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65a3.894 3.894 0 011.029 2.682c0 3.823-2.339 4.675-4.562 4.922.357.307.676.915.676 1.849 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.685.479C21.133 20.18 24 16.425 24 12.017 24 6.484 19.522 2 14 2h-2z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <span class="sr-only">GitHub</span>
-                        </a>
-                        <a href="https://instagram.com/luskas.c" target="_blank" rel="noopener noreferrer"
-                            class="text-gray-400 hover:text-white transition-colors duration-300">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12 0C8.74 0 8.333.01 7.02 0.06C5.71 0.11 4.77 0.29 3.91 0.63C3.05 0.97 2.31 1.45 1.69 2.07C1.07 2.69 0.59 3.43 0.25 4.29C-0.09 5.15 -0.27 6.09 -0.32 7.4C-0.37 8.71 -0.38 9.12 -0.38 12C-0.38 14.88 -0.37 15.29 -0.32 16.6C-0.27 17.91 -0.09 18.85 0.25 19.71C0.59 20.57 1.07 21.31 1.69 21.93C2.31 22.55 3.05 23.03 3.91 23.37C4.77 23.71 5.71 23.89 7.02 23.94C8.33 23.99 8.74 24 12 24C15.26 24 15.67 23.99 16.98 23.94C18.29 23.89 19.23 23.71 20.09 23.37C20.95 23.03 21.69 22.55 22.31 21.93C22.93 21.31 23.41 20.57 23.75 19.71C24.09 18.85 24.27 17.91 24.32 16.6C24.37 15.29 24.38 14.88 24.38 12C24.38 9.12 24.37 8.71 24.32 7.4C24.27 6.09 24.09 5.15 23.75 4.29C23.41 3.43 22.93 2.69 22.31 2.07C21.69 1.45 20.95 0.97 20.09 0.63C19.23 0.29 18.29 0.11 16.98 0.06C15.67 0.01 15.26 0 12 0ZM12 2.16C15.21 2.16 15.58 2.17 16.8 2.22C17.99 2.27 18.68 2.45 19.19 2.65C19.71 2.85 20.06 3.1 20.39 3.43C20.72 3.76 20.97 4.11 21.17 4.63C21.37 5.14 21.55 5.83 21.6 7.02C21.65 8.24 21.66 8.61 21.66 12C21.66 15.39 21.65 15.76 21.6 16.98C21.55 18.17 21.37 18.86 21.17 19.37C20.97 19.89 20.72 20.24 20.39 20.57C20.06 20.9 19.71 21.15 19.19 21.35C18.68 21.55 17.99 21.73 16.8 21.78C15.58 21.83 15.21 21.84 12 21.84C8.79 21.84 8.42 21.83 7.2 21.78C6.01 21.73 5.32 21.55 4.81 21.35C4.29 21.15 3.94 20.9 3.61 20.57C3.28 20.24 3.03 19.89 2.83 19.37C2.63 18.86 2.45 18.17 2.4 16.98C2.35 15.76 2.34 15.39 2.34 12C2.34 8.61 2.35 8.24 2.4 7.02C2.45 5.83 2.63 5.14 2.83 4.63C3.03 4.11 3.28 3.76 3.61 3.43C3.94 3.1 4.29 2.85 4.81 2.65C5.32 2.45 6.01 2.27 7.2 2.22C8.42 2.17 8.79 2.16 12 2.16ZM12 6.87C9.1 6.87 6.87 9.1 6.87 12C6.87 14.9 9.1 17.13 12 17.13C14.9 17.13 17.13 14.9 17.13 12C17.13 9.1 14.9 6.87 12 6.87ZM12 15.13C10.24 15.13 8.87 13.76 8.87 12C8.87 10.24 10.24 8.87 12 8.87C13.76 8.87 15.13 10.24 15.13 12C15.13 13.76 13.76 15.13 12 15.13ZM17.8 5.83C17.26 5.83 16.83 5.39 16.83 4.85C16.83 4.31 17.26 3.87 17.8 3.87C18.34 3.87 18.77 4.31 18.77 4.85C18.77 5.39 18.34 5.83 17.8 5.83Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <span class="sr-only">Instagram</span>
-                        </a>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <footer class="site-footer bg-gray-800 text-white py-8 mt-auto" w3-include-html="components/footer.html"></footer>
     </div>
     <!-- Flatpickr JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="./index.js"></script>
+    <script src="./include.js"></script>
 
 </body>
 

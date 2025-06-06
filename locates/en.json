@@ -12,5 +12,16 @@
   "days": "days",
   "termsOfService": "Terms of Service",
   "suggestions": "Suggestions",
-  "connectWithMe": "Connect With Me"
+  "connectWithMe": "Connect With Me",
+  "privacyPolicy": "Privacy Policy",
+  "contact": "Contact",
+  "about": "About",
+  "home": "Home",
+  "suggestionsForm": "Suggestions Form",
+  "abouUs": "About Us",
+  "aboutDescription": "Infinity Love was created with love and attention to detail. We believe that every relationship is unique and deserves to be celebrated. Our website is designed to be user-friendly and visually appealing, making it easy for you to keep track of your love story.",
+  "ourTeam": "Our Team",
+  "ourTeamDescription": "We are a small team of developers and designers dedicated to creating the best possible experience for our users. We are constantly working to improve Infinity Love and add new features that you will love.",
+  "contactUs": "Contact Us",
+  "contactDescription": "If you have any questions, suggestions, or feedback, please don't hesitate to contact us. We would love to hear from you!"
 }
